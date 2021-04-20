@@ -1,0 +1,27 @@
+.navbar.navbar-light.navbar-expand-md {
+  height: 125px;
+}
+
+body {
+  background-color: rgb(61, 60, 60);
+}
+
+img {
+  width: 500px;
+}
+
+img.rounded.img-fluid.border.rounded-0.border-primary.shadow.mt-5 {
+  height: 375px;
+  width: 1200px;
+  margin-right: 350px;
+}
+
+.jumbotron {
+  width: 90%;
+  margin-left: 59px;
+}
+img.rounded.img-fluid.border.border-danger.shadow.mt-1 {
+  height: 375px;
+  width: 1200px;
+  margin-left: 350px;
+}

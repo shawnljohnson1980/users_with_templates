@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html class="music" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>User With Template</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee+Shade">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Butcherman">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+</head>
+
+<body class="text-danger">
+    <nav class="navbar navbar-light navbar-expand-md bg-danger border rounded-0 shadow">
+        <div class="container"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span
+                    class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><a
+                class="navbar-brand mr-5" href="/"
+                style="font-family: 'Bungee Shade', cursive;font-size: 30px;color: rgba(0, 0, 0, 0.9);padding: 0;">Super
+                Club</a>
+            <div class="collapse navbar-collapse text-center border rounded border-white shadow" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link text-white mr-5 ml-5" href="/create_super">Add a Hero</a><a
+                            class="nav-link text-white mr-5 ml-5" href="/create_villains">Add a Villian</a></li>
+                    <li class="nav-item"><a class="nav-link active text-white border rounded-0 border-danger"
+                            href="team_create">Add a Team</a><a class="nav-link text-white"
+                            href="/view_villain">Villians</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="nav-item"><a class="nav-link active text-white ml-5" href="/">Home</a></p>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form>
+                    <div class="form-group"><label class="text-primary"
+                            style="font-family: Bangers, cursive;font-size: 25px;">Good&nbsp;</label><select
+                            class="border rounded-pill border-primary shadow form-control">
+                            <optgroup label="This is a group" good=True>
+                                <option selected="">Good</option>
+                                <option>bad</option>
+                            </optgroup>
+                        </select></div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form>
+                    <div class="form-group"><label
+                            style="font-family: Butcherman, cursive;font-size: 27px;font-weight: 300;color: var(--success);">Bad</label><select
+                            class="bg-dark border rounded-pill border-danger shadow form-control"
+                            style="color: var(--success);">
+                            <optgroup label="This is a group" good=False>
+                                <option selected>Bad</option>
+                                <option>Good</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron bg-warning border rounded border-primary shadow mt-5">
+        <h1 class="display-1 text-center"
+            style="color: var(--red);font-family: Bangers, cursive;font-style: oblique;font-weight: bold;">Superteams
+        </h1>
+        <h2 class="display-4 text-center text-danger bg-primary border rounded-pill shadow"
+            style="font-family: Bangers, cursive;color: var(--primary);font-style: oblique;font-weight: bold;">Super
+            Heroes</h2>
+        <div class="table-responsive shadow">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="table-primary border rounded-0 border-secondary">Team Name</th>
+                        <th class="table-primary border rounded-0 border-secondary">Inception Date</th>
+                        <th class="table-primary border rounded-0 border-secondary">Member Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for team in teams %}
+                    <tr>
+                        <td class="table-warning border rounded-0 border-secondary">{{team.team_name}}</td>
+                        <td class="table-warning border rounded-0 border-secondary">{{team.created_date}}</td>
+                        <td class="table-warning border rounded-0 border-secondary">{{team.superheroes.all}}, </td>
+                    </tr>
+                    <tr>
+                        <td class="table-danger border rounded-0 border-secondary"></td>
+                        <td class="table-danger border rounded-0 border-secondary"></td>
+                        <td class="table-danger border rounded-0 border-secondary"></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="jumbotron bg-dark border rounded border-danger shadow mt-5">
+        <h1 class="display-1 text-center"
+            style="color: var(--success);font-family: Butcherman, cursive;font-style: oblique;font-weight: bold;">
+            Villian Teams</h1>
+        <h2 class="display-4 text-center bg-dark border rounded-circle border-danger shadow"
+            style="font-family: Butcherman, cursive;color: var(--green);font-style: oblique;font-weight: bold;">Super
+            VIllians</h2>
+        <div class="table-responsive shadow">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="table-danger border rounded-0 border-secondary">Team Name</th>
+                        <th class="table-danger border rounded-0 border-secondary">Inception Date</th>
+                        <th class="table-danger border rounded-0 border-secondary">Member Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="table-dark border rounded-0 border-secondary">{{team.name}}</td>
+                        <td class="table-dark border rounded-0 border-secondary">{{team.created_date}}</td>
+                        <td class="table-dark border rounded-0 border-secondary">{{team.super_villains.all}}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-secondary border rounded-0 border-secondary">{{team.name}}</td>
+                        <td class="table-secondary border rounded-0 border-secondary">{{team.created_date}}</td>
+                        <td class="table-secondary border rounded-0 border-secondary">{{team.villains.all}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div><input type="hidden">
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

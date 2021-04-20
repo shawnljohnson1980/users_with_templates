@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>User With Template</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee+Shade">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Butcherman">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md bg-danger border rounded shadow">
+        <div class="container"><a class="navbar-brand text-dark" href="/"
+                style="font-family: 'Bungee Shade', cursive;font-size: 30px;">Super Club</a><button
+                data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle
+                    navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse border rounded border-white shadow" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link text-white ml-5" href="/create_super">Add Supers</a>
+                        <a class="nav-link text-white ml-5" href="/create_team">Add Super team</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link text-white ml-5" href="/view_teams">Super Teams</a>
+                        <a class="nav-link text-white ml-5" href="/view_super">Super Heroes</a>
+                    </li>
+
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link text-white ml-5" href=""></a>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+        <p class="nav-item"><a class="nav-link active text-white ml-5" href="/">Home</a></p>
+    </nav>
+    <div class="jumbotron bg-dark border rounded border-danger shadow mt-5">
+        <h1 class="display-1 text-center"
+            style="color: var(--green);font-family: Butcherman, cursive;font-style: oblique;font-weight: bold;"></h1>
+        <h1 class="display-4 text-center bg-dark border rounded-circle border-danger"
+            style="font-family: Butcherman, cursive;color: var(--success);font-style: oblique;font-weight: bold;">Super
+            -Villians</h1>
+        <div class="table-responsive bg-dark border rounded-0 border-danger shadow">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="table-danger text-center border rounded-0 border-dark">Real Name</th>
+                        <th class="table-danger text-center border rounded-0 border-dark">Code Name</th>
+                        <th class="table-danger text-center border rounded-0 border-dark">Team</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="table-dark border rounded-0 border-danger">{{super_villain.real_name}}</td>
+                        <td class="table-dark border rounded-0 border-danger">{{super_villain.code_name}}</td>
+                        <td class="table-dark border rounded-0 border-danger">{{super_villain.team}}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-secondary border rounded-0 border-warning">{{super_villain.real_name}}</td>
+                        <td class="table-secondary border rounded-0 border-warning">{{super_villain.code_name}}</td>
+                        <td class="table-secondary border rounded-0 border-warning">{{super_villain.team}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
